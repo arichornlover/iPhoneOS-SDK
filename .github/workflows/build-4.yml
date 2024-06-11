@@ -12,7 +12,7 @@ jobs:
           mkdir -p xcode
           wget https://github.com/arichornlover/iPhoneOS-SDK/raw/master/build-4.sh
           wget https://github.com/arichornlover/iPhoneOS-SDK/raw/master/macos-13.txt
-          bash build-3.sh
+          bash build-4.sh
           
       - name: Upload release
         uses: svenstaro/upload-release-action@2.9.0
