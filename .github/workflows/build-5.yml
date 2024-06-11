@@ -1,0 +1,24 @@
+name: 14 SDK
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - run: |
+          mkdir -p xcode
+          wget https://github.com/arichornlover/iPhoneOS-SDK/raw/master/build-5.sh
+          wget https://github.com/arichornlover/iPhoneOS-SDK/raw/master/macos-14.txt
+          bash build-5.sh
+          
+      - name: Upload release
+        uses: svenstaro/upload-release-action@2.9.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: xcode/*.tar.xz
+          tag: v1.0
+          file_glob: true
+          overwrite: true
